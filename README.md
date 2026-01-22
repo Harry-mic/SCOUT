@@ -26,7 +26,7 @@ This repository is built upon the [RAGEN](https://github.com/RAGEN-AI/RAGEN) fra
 
 ## 🚀 The SCOUT Framework
 
-<p align="center"><img src="assets/scout_overview.png" width="800px" alt="SCOUT Framework Overview" /></p>
+<p align="center"><img src="pipeline117.png" width="800px" alt="SCOUT Framework Overview" /></p>
 
 [cite_start]The training pipeline consists of three distinct stages[cite: 139, 140, 141]:
 
