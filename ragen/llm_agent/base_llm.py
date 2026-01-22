@@ -33,6 +33,7 @@ class OpenAIProvider(LLMProvider):
             raise ValueError("OpenAI API key not provided and not found in environment variables")
         
         self.client = AsyncOpenAI(api_key=self.api_key)
+        # import pdb;pdb.set_trace()
     
     async def generate(self, messages: List[Dict[str, str]], **kwargs) -> LLMResponse:
         if "o1-mini" in self.model_name:
@@ -46,10 +47,7 @@ class OpenAIProvider(LLMProvider):
         )
         if response.choices[0].finish_reason in ['length', 'content_filter']:
             raise ValueError("Content filtered or length exceeded")
-        return LLMResponse(
-            content=response.choices[0].message.content,
-            model_name=response.model
-        )
+        return LLMResponse(content=response.choices[0].message.content,model_name=response.model)
 
 class DeepSeekProvider(LLMProvider):
     """DeepSeek API provider implementation"""
@@ -199,7 +197,7 @@ class ConcurrentLLM:
         
         # Queue to store unfinished or failed tasks
         current_batch = messages_list.copy()
-        max_retries = kwargs.get("max_retries", 100)
+        max_retries = kwargs.get("max_retries", 10)
         retry_count = 0
         
         while current_batch and retry_count < max_retries:

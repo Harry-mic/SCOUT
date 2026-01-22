@@ -8,7 +8,7 @@ class FrozenLakeEnvConfig:
     size: int = 4
     p: float = 0.9
     success_rate: float = 0.8
-    is_slippery: bool = True
+    is_slippery: bool = False
     map_seed: Optional[int] = None
     render_mode: str = "text"
     observation_format: str = "grid"

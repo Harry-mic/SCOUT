@@ -88,6 +88,7 @@ class ContextManager:
         Initialize the ContextManager.
         Processor is used to process the image data.
         """
+        # import pdb;pdb.set_trace()
         self.config = config
         self.tokenizer = tokenizer
         self.processor = processor
@@ -311,7 +312,7 @@ class ContextManager:
 
             llm_input_texts.append(text_with_prompt)
             messages_list.append(messages)
-
+        # import pdb;pdb.set_trace()
         inputs = self.tokenizer(llm_input_texts, return_tensors="pt", padding=True, padding_side="left", truncation=False) # We have truncated previously, truncation in tokenizer may cause issues.
         input_ids, attention_mask = inputs.input_ids, inputs.attention_mask
         position_ids = (attention_mask.cumsum(dim=-1) - 1).clamp(min=0)
@@ -331,7 +332,6 @@ class ContextManager:
             "position_ids": position_ids,
             "responses": input_ids[:, 1:], # remove the first token
         }, batch_size=input_ids.shape[0])
-
         if prepare_for_update:
             llm_inputs.batch["loss_mask"] = loss_mask # remove the first token
             llm_inputs.batch["rm_scores"] = normalized_score_tensor # remove the first token
@@ -353,6 +353,30 @@ class ContextManager:
                 key: np.sum(value) / self.env_nums[key.split("/")[0]]
                 for key, value in metrics.items()
             }
+            # Derived metrics for wandb logging
+            try:
+                # charts/avg_episode_return: average across all 2048 env groups
+                ep_keys = [k for k in metrics.keys() if k.endswith('/episodic_return')]
+                if len(ep_keys) > 0:
+                    ep_vals = []
+                    for k in ep_keys:
+                        tag = k.split('/')[0]
+                        denom = self.env_nums.get(tag, max(1, len(metrics[k])))
+                        ep_vals.append(float(np.sum(metrics[k]) / denom))
+                    mean_metrics["charts/avg_episode_return"] = float(np.mean(ep_vals))
+            except Exception:
+                pass
+            try:
+                # rollout/max_tile: max over all envs in this batch
+                tile_keys = [k for k in metrics.keys() if k.endswith('/max_tile')]
+                if len(tile_keys) > 0:
+                    tile_vals = []
+                    for k in tile_keys:
+                        tile_vals.extend(metrics[k])
+                    if len(tile_vals) > 0:
+                        mean_metrics["rollout/max_tile"] = int(np.max(tile_vals))
+            except Exception:
+                pass
             for key, values in metrics.items():
                 if not isinstance(values, list):
                     continue
@@ -378,6 +402,7 @@ class ContextManager:
             
         env_ids = lm_outputs.non_tensor_batch['env_ids']
         env_inputs = []
+        # import pdb;pdb.set_trace()
         for env_id, response in zip(env_ids, responses):
             llm_response, actions = self._parse_response(response)
             env_inputs.append({

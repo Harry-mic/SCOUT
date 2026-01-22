@@ -287,6 +287,7 @@ def main(config):
 	proxy = LLMAgentProxy(config, actor_wg, tokenizer)
 	import time
 	start_time = time.time()
+	# import pdb;pdb.set_trace()
 	rollouts = proxy.rollout(
 		DataProto(
 			batch=None,

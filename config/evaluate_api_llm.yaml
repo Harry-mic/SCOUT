@@ -1,8 +1,11 @@
+# export OPENAI_BASE_URL="https://api.ohmygpt.com/v1"
+# export OPENAI_API_KEY="sk-o4sMxBkN5BB100C4D4a3T3BlBkFJF7791CA39EA14ca98041"
+# python -m ragen.eval_api hydra.searchpath='[file://./verl/verl/trainer/config]'
 defaults:
   - base # this is a symbolic link to the verl/verl/trainer/config/ppo_trainer.yaml file
 
 model_config:
-  model_name: gpt-4o # should be registered in model_info
+  model_name: TA/openai/gpt-oss-120b # should be registered in model_info
   max_concurrency: 16
 
 model_info:
@@ -24,9 +27,9 @@ model_info:
     generation_kwargs:
       temperature: 0
       max_tokens: 512 # max_completion_tokens if o1-mini
-  gpt-4o:
+  gpt-4o-mini:
     provider_name: openai
-    model_name: gpt-4o
+    model_name: gpt-4o-mini
     generation_kwargs:
       temperature: 0
       max_tokens: 512 # max_completion_tokens if o1-mini
@@ -36,21 +39,42 @@ model_info:
     generation_kwargs:
       temperature: 0
       max_completion_tokens: 512
+  ark-deepseek-v3-250324:
+    provider_name: openai
+    model_name: ark-deepseek-v3-250324
+    generation_kwargs:
+      temperature: 0
+      max_completion_tokens: 512
   deepseek-v3:
     provider_name: deepseek
     model_name: deepseek-chat
     generation_kwargs:
       temperature: 0
       max_completion_tokens: 512
+  glm-4.6:
+    provider_name: openai
+    model_name: glm-4.6
+    generation_kwargs:
+      temperature: 0
+      max_completion_tokens: 512
+  TA/openai/gpt-oss-120b:
+    provider_name: openai
+    model_name: TA/openai/gpt-oss-120b
+    generation_kwargs:
+      temperature: 0
+      max_tokens: 8192
+      # max_retries: 5
 
-
-
+agent_proxy:
+  max_turn: 5
 es_manager:
   val:
-    env_groups: 256
+    env_groups: 32
     group_size: 1 # should be set to 1 because val temperature is set to 0 and same prompt leads to same output
     env_configs:
-      tags: ["CoordSokoban"]
-      n_groups: [256] # If not set, all env names divide nums equally. Under the same group, the env config and env seed (prompt) are equal in each generation
+      tags: ["rubikscube"]
+      n_groups: [32] # If not set, all env names divide nums equally. Under the same group, the env config and env seed (prompt) are equal in each generation
 
 
+rollout:
+  max_model_len: 7200

@@ -1,14 +1,14 @@
 defaults:
-  - envs
+  - envs_incontext
 enable_response_mask: True
 system:
-  CUDA_VISIBLE_DEVICES: "0,1,2,3"
+  CUDA_VISIBLE_DEVICES: "0"
 
 seed:
   train: 10000
   val: 123
 
-model_path: /mnt/general/wanghy/RAGEN/saves/qwen3b_it_fromit_think_sudoku_sequence_multitask/global_step_200/qwen2.5_3b_actor_hf
+model_path: /mnt/general/share/model/Qwen/Qwen2.5-3B-Instruct
 # /mnt/general/share/model/tyzhu/SPA-frozenlake-qwen2.5-1.5b-instruct
 
 lora:
@@ -25,12 +25,12 @@ actor_rollout_ref:
   rollout:
     name: vllm
     log_prob_micro_batch_size_per_gpu: ${micro_batch_size_per_gpu}
-    tensor_model_parallel_size: 4
+    tensor_model_parallel_size: 1
     dtype: bfloat16
     max_model_len: 7200
     prompt_length: 1
     response_length: 400
-    gpu_memory_utilization: 0.7
+    gpu_memory_utilization: 0.5
     max_num_batched_tokens: 8192
     enforce_eager: True
     free_cache_engine: True
@@ -61,14 +61,14 @@ es_manager:
     env_groups: 8
     group_size: 16
     env_configs:
-      tags: ["rubikscube"]
+      tags: ["CoordSokoban"]
       n_groups: [8]
   val:
-    env_groups: 256
-    group_size: 1
+    env_groups: 32
+    group_size: 128
     env_configs:
-      tags: ["rubikscube"]
-      n_groups: [256]
+      tags: ["CoordSokoban"]
+      n_groups: [32]
 
 ctx_manager:
   generation:

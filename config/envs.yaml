@@ -2,6 +2,7 @@ custom_envs:
   SimpleSokoban:
     env_type: sokoban
     max_actions_per_traj: 10 # used in environment state manager to control the actual max actions executed per trajectory
+    # ORIGNAL env_instruction
     env_instruction: |
       You are solving the Sokoban puzzle. 
       You are the player and you need to push all boxes to targets. 
@@ -12,7 +13,7 @@ custom_envs:
     env_config: # keys should be a subset of SokobanConfig
       dim_x: 6
       dim_y: 6
-      num_boxes: 1
+      num_boxes: 2
       max_steps: 100
 
   LargerSokoban:
@@ -65,7 +66,7 @@ custom_envs:
     env_config: # keys should be a subset of SokobanConfig
       dim_x: 6
       dim_y: 6
-      num_boxes: 1
+      num_boxes: 2
       max_steps: 100
       observation_format: "grid_coord"
 
@@ -111,14 +112,14 @@ custom_envs:
 
   FrozenLake:
     env_type: frozen_lake
-    max_actions_per_traj: 10
+    max_actions_per_traj: 25
     env_instruction: "You are solving the FrozenLake puzzle. Forbid the whole and go to the target. You may move to the unintended direction due to the slippery ice. Example answer format: <think>To forbid the hole and go to the target, I should go left then go up.</think><answer>Left || Up</answer>"
     max_tokens: 100
     env_config: null
 
   CoordFrozenLake:
     env_type: frozen_lake
-    max_actions_per_traj: 10
+    max_actions_per_traj: 25
     env_instruction: |
       You are solving the FrozenLake puzzle. The observation includes both a symbol grid and zero-indexed coordinates for the start, goal, player, and any holes.
       Coordinates range from the top-left corner (0, 0) to the bottom-right corner (5, 5).
@@ -196,3 +197,79 @@ custom_envs:
     env_instruction: "You are a Lean theorem prover. Given a Lean theorem statement, propose a sequence of tactics that completes the proof. Think step by step about which tactics to apply next. Provide tactics separated by '||', for example <answer>intro || simp || rfl</answer>."
     max_tokens: 512
     env_config: null # Please refer to ragen/env/lean/config.py for a full list of parameters.
+
+  
+  game_2048:
+    env_type: game_2048
+    max_actions_per_traj: 700
+    env_instruction: |
+      You are playing the 2048 game on a 4x4 grid. Merge equal tiles by sliding Up, Right, Down, or Left.
+      If a move is invalid (no tiles move), a small penalty is applied. Respond with a single action.
+      Example: <answer>Up</answer>
+    max_tokens: 8192
+    env_config: null
+
+  blackjack:
+    env_type: blackjack
+    max_actions_per_traj: 10
+    env_instruction: |
+      You are playing Blackjack against a dealer. The dealer must hit on 16 or less and stand on 17 or more.
+      Choose either Stick or Hit. Respond with a single action.
+      Example: <answer>Hit</answer>
+    max_tokens: 64
+    env_config: null
+
+  rubikscube:
+    env_type: rubikscube
+    max_actions_per_traj: 20
+    env_instruction: |
+      You are solving a 2x2 Rubik's Cube (Pocket Cube). The goal is to restore the cube so that each of the faces consists of a single, unique color.
+      Available actions use standard Singmaster notation for face rotations: U, U', D, D', L, L', R, R', F, F', B, B'.
+      - Faces: U (Up), D (Down), L (Left), R (Right), F (Front), B (Back).
+      - Modifiers: A letter alone means 90° clockwise (e.g., 'R'). A letter with prime (') means 90° counter-clockwise (e.g., "R'").
+      Respond with a sequence of actions separated by "||".
+      Example: <answer>U</answer>
+    max_tokens: 96
+    env_config:
+      scramble_depth: 3
+      max_steps: 20
+      render_mode: "text"
+  
+  SimpleSudoku:
+    env_type: sudoku
+    max_actions_per_traj: 20
+    env_instruction: |
+      You are solving a Sudoku puzzle. Fill in the grid so that every row, column, and 2x2 box contains the numbers 1-4 without repetition.
+      Initial cells are shown in [brackets] and cannot be modified. Empty cells are shown as dots (.).
+      Place numbers one at a time using the format, for example: <answer>place 1 at row 2 col 3</answer> or <answer>1,2,3</answer>
+      The environment will provide feedback on valid/invalid moves and show conflicts if any occur.
+    max_tokens: 150
+    parallel_friendly: false
+    max_workers: 32
+    env_config:
+      grid_size: 4
+      difficulty: "easy"
+      render_format: "with_feedback"
+      show_conflicts: false
+      show_valid_numbers: false
+      max_steps: 20
+
+  MediumSudoku:
+    env_type: sudoku
+    max_actions_per_traj: 30
+    env_instruction: |
+      You are solving a Sudoku puzzle. Fill in the grid so that every row, column, and 3x3 box contains the numbers 1-9 without repetition.
+      Initial cells are shown in [brackets] and cannot be modified. Empty cells are shown as dots (.).
+      Place numbers one at a time using the format: <answer>place 5 at row 2 col 3</answer> or <answer>2,3,5</answer>
+      The environment will provide feedback on valid/invalid moves and show conflicts if any occur.
+    max_tokens: 150
+    parallel_friendly: false
+    max_workers: 32
+    env_config:
+      grid_size: 9
+      difficulty: "medium"
+      render_format: "with_feedback"
+      show_conflicts: true
+      show_valid_numbers: true
+      max_steps: 81
+

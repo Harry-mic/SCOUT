@@ -7,6 +7,13 @@
 **/*.tar.gz
 **/playground
 **/wandb
+/verl
+/scripts
+/saves
+/runs
+/results
+/cleanrl
+/train_*.sh
 
 # Byte-compiled / optimized / DLL files
 __pycache__/

@@ -11,6 +11,37 @@ Game Rules:
 4. Based on the symbolic meaning of their names, which arm do you think is more likely to give higher rewards on average? Choose between {name_a} and {name_b}, and output like <answer> {name_a} </answer> or <answer> {name_b} </answer>.
 """
 
+# INIT_PROMPT = """You are playing a bandit game. Goal: Maximize your total reward by choosing which arm to pull.
+# Game Rules:
+# 1. There are 2 arms, named {name_a} and {name_b}.
+# 2. Each arm has its own reward distribution, related to their names.
+# 3. You need to analyze the symbolic meaning of each arm's name to guess their reward potential.
+
+# Example answer format:
+# <think>
+# <observation>
+# Arm A is named \"{name_a}\". Symbolically, this implies [analysis of name A].
+# Arm B is named \"{name_b}\". Symbolically, this implies [analysis of name B].
+# </observation>
+# Based on the analysis, {name_a} seems to represent risk/low value, while {name_b} implies wealth/stability.
+# <prediction>
+# If I pull {name_b}, I expect a higher average reward because [reasoning].
+# </prediction>
+# </think>
+# <answer> {name_b} </answer>
+
+# A sample full output is as follows:
+# <think>
+# <observation>
+# Arm A is named "Rotten Apple". Symbolically, this implies decay and zero value.
+# Arm B is named "Golden Chalice". Symbolically, this implies treasure and high value.
+# </observation>
+# Comparing the two, the Golden Chalice is clearly superior in potential value.
+# <prediction>
+# Pulling "Golden Chalice" will likely yield a high positive reward, whereas "Rotten Apple" might give zero or negative reward.
+# </prediction>
+# </think>
+# <answer> Golden Chalice </answer>"""
 
 class BanditEnv(BaseDiscreteActionEnv, gym.Env):
     class_counter = 0

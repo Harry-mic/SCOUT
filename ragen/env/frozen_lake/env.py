@@ -13,6 +13,7 @@ from ragen.env.base import BaseDiscreteActionEnv
 class FrozenLakeEnv(BaseDiscreteActionEnv, GymFrozenLakeEnv):
     def __init__(self, config: FrozenLakeEnvConfig = FrozenLakeEnvConfig()):
         # Using mappings directly from config
+        # import pdb;pdb.set_trace()
         self.config = config
         self.GRID_LOOKUP = config.grid_lookup
         self.ACTION_LOOKUP = config.action_lookup
@@ -95,6 +96,7 @@ class FrozenLakeEnv(BaseDiscreteActionEnv, GymFrozenLakeEnv):
 if __name__ == "__main__":
     import matplotlib.pyplot as plt
     config = FrozenLakeEnvConfig(size=4, is_slippery=True)
+    # import pdb;pdb.set_trace()
     env = FrozenLakeEnv(config)
     print(env.reset())
     while True:

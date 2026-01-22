@@ -12,6 +12,14 @@ from .metamathqa.env import MetaMathQAEnv
 from .metamathqa.config import MetaMathQAEnvConfig
 from .lean.config import LeanEnvConfig
 from .lean.env import LeanEnv
+from .game_2048.config import Game2048EnvConfig
+from .game_2048.env import Game2048Env
+from .blackjack.config import BlackjackEnvConfig
+from .blackjack.env import BlackjackEnv
+from .rubikscube.config import RubiksCube2x2Config
+from .rubikscube.env import RubiksCube2x2Env
+from .sudoku.config import SudokuEnvConfig
+from .sudoku.env import SudokuEnv
 
 
 REGISTERED_ENVS = {
@@ -22,6 +30,10 @@ REGISTERED_ENVS = {
     # 'alfworld': AlfredTXTEnv,
     'metamathqa': MetaMathQAEnv,
     'lean': LeanEnv,
+    'game_2048': Game2048Env,
+    'blackjack': BlackjackEnv,
+    'rubikscube': RubiksCube2x2Env,
+    'sudoku': SudokuEnv,
 }
 
 REGISTERED_ENV_CONFIGS = {
@@ -32,6 +44,10 @@ REGISTERED_ENV_CONFIGS = {
     # 'alfworld': AlfredEnvConfig,
     'metamathqa': MetaMathQAEnvConfig,
     'lean': LeanEnvConfig,
+    'game_2048': Game2048EnvConfig,
+    'blackjack': BlackjackEnvConfig,
+    'rubikscube': RubiksCube2x2Config,
+    'sudoku': SudokuEnvConfig,
 }
 
 try:

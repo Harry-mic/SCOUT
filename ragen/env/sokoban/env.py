@@ -33,6 +33,7 @@ class SokobanEnv(BaseDiscreteActionEnv, GymSokobanEnv):
     def reset(self, seed=None, mode=None):
         try:
             with all_seed(seed):
+                # import pdb;pdb.set_trace()
                 self.room_fixed, self.room_state, self.box_mapping, action_sequence = generate_room(
                     dim=self.dim_room,
                     num_steps=self.num_gen_steps,

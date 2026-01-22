@@ -94,10 +94,10 @@ main() {
         pip install torch==2.5.0 --index-url https://download.pytorch.org/whl/cu124
         
         print_step "Installing flash-attention..."
-        pip3 install flash-attn==2.7.4.post1 --no-build-isolation
+        # pip3 install flash-attn==2.7.4.post1 --no-build-isolation
     else
         print_step "Installing PyTorch without CUDA support..."
-        pip install torch==2.5.0
+        pip install torch==2.4.0
     fi
     
     # Install remaining requirements
@@ -137,8 +137,8 @@ main() {
     conda install conda-forge::gdown
     mkdir -p external/webshop-minimal/webshop_minimal/data/full
     cd external/webshop-minimal/webshop_minimal/data/full
-    gdown https://drive.google.com/uc?id=1A2whVgOO0euk5O13n2iYDM0bQRkkRduB # items_shuffle
-    gdown https://drive.google.com/uc?id=1s2j6NgHljiZzQNL3veZaAiyW_qDEgBNi # items_ins_v2
+    # gdown https://drive.google.com/uc?id=1A2whVgOO0euk5O13n2iYDM0bQRkkRduB # items_shuffle
+    # gdown https://drive.google.com/uc?id=1s2j6NgHljiZzQNL3veZaAiyW_qDEgBNi # items_ins_v2
     cd ../../../../..
 
     echo -e "${GREEN}Installation completed successfully!${NC}"
