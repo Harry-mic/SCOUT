@@ -28,20 +28,20 @@ This repository is built upon the [RAGEN](https://github.com/RAGEN-AI/RAGEN) fra
 
 <p align="center"><img src="pipeline117.png" width="800px" alt="SCOUT Framework Overview" /></p>
 
-[cite_start]The training pipeline consists of three distinct stages[cite: 139, 140, 141]:
+The training pipeline consists of three distinct stages:
 
 1.  **Exploration Stage (Scout Training):**
-    * [cite_start]Agents: Small MLPs or CNNs ($~10^{-5}$B parameters)[cite: 604].
-    * [cite_start]Algorithm: DQN or PPO[cite: 314].
-    * [cite_start]Goal: Efficiently map transition dynamics and generate expert trajectories ($\tau_{scout}$)[cite: 222, 337].
+    * Agents: Small MLPs or CNNs ($~10^{-5}$B parameters).
+    * Algorithm: DQN or PPO.
+    * Goal: Efficiently map transition dynamics and generate expert trajectories ($\tau_{scout}$).
 
 2.  **Distillation Stage (SFT):**
-    * [cite_start]Process: Transform $\tau_{scout}$ into text-based dialogue formats using a deterministic *Textualizer*[cite: 308].
-    * [cite_start]Goal: "Warm up" the LLM to understand the physics of the unseen task[cite: 140, 223].
+    * Process: Transform $\tau_{scout}$ into text-based dialogue formats using a deterministic *Textualizer*.
+    * Goal: "Warm up" the LLM to understand the physics of the unseen task.
 
 3.  **Evolving Stage (Multi-turn RL):**
-    * [cite_start]Algorithm: Multi-turn PPO (via RAGEN)[cite: 428].
-    * [cite_start]Goal: Refine reasoning and enable the LLM to self-evolve beyond the scout's capabilities[cite: 141, 599].
+    * Algorithm: Multi-turn PPO (via RAGEN).
+    * Goal: Refine reasoning and enable the LLM to self-evolve beyond the scout's capabilities.
 
 ## 🛠️ Installation
 
