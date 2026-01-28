@@ -103,7 +103,7 @@ bash scripts/example_bash.sh
 ```
 
 ## 📊 Performance
-<p align="center"><img src="scout_framework.png" width="800px" alt="SCOUT Framework Overview" /></p>
+<p align="center"><img src="results_table.png" width="800px" alt="SCOUT Framework Overview" /></p>
 *SCOUT achieves state-of-the-art performance on unseen tasks while saving 60% of computational costs compared to direct RL training.*
 
 ## 📂 Repository Structure
@@ -111,7 +111,7 @@ bash scripts/example_bash.sh
 ```text
 SCOUT/
 ├── ragen/                  # Core RAGEN framework (Env Manager, Context Manager)
-├── scout/                  # Lightweight scout training (DQN/PPO) & Textualizers
+├── scout_dqn/              # Lightweight scout training (DQN) & Textualizers
 ├── config/                 # Hydra configurations for PPO/GRPO
 ├── scripts/                # Setup and utility scripts
 └── train.py                # Main entry point for Evolving Stage
