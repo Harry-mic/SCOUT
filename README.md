@@ -77,11 +77,16 @@ Bandit: Fundamental RL benchmark.
 ### 1. Exploration Stage (Train Scouts)
 Train lightweight scouts (MLP/CNN) to collect expert trajectories.
 ```bash
-# Example: Train a DQN scout for Rubik's Cube
-python scout/train_scout.py --env RubiksCube --algo dqn --output_dir data/trajectories
+# Example: Train a DQN scout for Frozenlake
+python scout_dqn/dqn_frozenlake.py --track
 ```
 
 ### 2. Distillation Stage (SFT)
+Textualizer the collected datasets.
+```bash
+# Textualizer from one-hot vectors to language dialogues.
+python 
+```
 Fine-tune the base LLM on the collected trajectories. We utilize LLaMA-Factory for this stage.
 ```bash
 # Format data and run SFT
