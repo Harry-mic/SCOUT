@@ -105,8 +105,8 @@ bash scripts/example_bash.sh
 ```
 
 ## 📊 Performance
-<p align="center"><img src="results_table.png" width="800px" alt="SCOUT Framework Overview" /></p>
 *SCOUT achieves state-of-the-art performance on unseen tasks while saving 60% of computational costs compared to direct RL training.*
+<p align="center"><img src="results_table.png" width="800px" alt="SCOUT Framework Overview" /></p>
 
 ## 📂 Repository Structure
 
