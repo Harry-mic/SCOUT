@@ -10,6 +10,7 @@
   <a href=""><img src="https://img.shields.io/badge/📄_Paper-green?style=for-the-badge&logoColor=white" alt="Paper"></a>
   <a href="https://github.com/Harry-mic/SCOUT"><img src="https://img.shields.io/badge/💻_Code-181717?style=for-the-badge&logoColor=white" alt="Code"></a>
   <a href=""><img src="https://img.shields.io/badge/🦙_Model-yellow?style=for-the-badge&logoColor=white" alt="Code"></a>
+  <a href=""><img src="https://img.shields.io/badge/📖_Dataset-purple?style=for-the-badge&logoColor=white" alt="Code"></a>
 </p>
 
 ## 📖 Overview
