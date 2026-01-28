@@ -47,7 +47,7 @@ The training pipeline consists of three distinct stages:
 
 ```bash
 # Clone the repository
-git clone [https://github.com/Harry-mic/SCOUT.git](https://github.com/Harry-mic/SCOUT.git)
+git clone https://github.com/Harry-mic/SCOUT.git
 cd SCOUT
 
 # Setup the environment (based on RAGEN)
