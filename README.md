@@ -1,4 +1,4 @@
-<h1 align="center"> SCOUT: Language-based Trial and Error Fails in the Era of Experience </h1>
+<h1 align="center"> Language-based Trial and Error Fails in the Era of Experience </h1>
 
 <p align="center">
   <strong>Sub-Scale Collaboration On Unseen Task (SCOUT)</strong><br>
