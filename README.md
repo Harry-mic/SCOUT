@@ -103,14 +103,7 @@ bash scripts/example_bash.sh
 ```
 
 ## 📊 Performance
-
-| Model | Average Score | GPU Hours (Rubik's Cube) |
-| :--- | :---: | :---: |
-| **SCOUT (Qwen2.5-3B)** | **0.86** | **9.6h** |
-| Gemini-2.5-Pro | 0.60 | - |
-| GPT-4o-mini | 0.38 | - |
-| Vanilla RL (PPO) | 0.38 | 24.0h |
-
+<p align="center"><img src="scout_framework.png" width="800px" alt="SCOUT Framework Overview" /></p>
 *SCOUT achieves state-of-the-art performance on unseen tasks while saving 60% of computational costs compared to direct RL training.*
 
 ## 📂 Repository Structure
