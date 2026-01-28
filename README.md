@@ -16,11 +16,11 @@
 **SCOUT** is a novel framework that addresses the inefficiency of Large Language Models (LLMs) in exploring unseen, non-linguistic environments (e.g., symbolic or spatial tasks).
 
 While LLMs excel at exploitation (reasoning based on knowledge), they are computationally expensive and inefficient at exploration (trial-and-error). SCOUT decouples these two processes:
-1.  [cite_start]**Lightweight Scouts:** Use small networks (MLPs/CNNs) to rapidly master environmental dynamics via standard RL[cite: 98, 99].
-2.  [cite_start]**Sub-Scale Collaboration:** Distill the scout's expert trajectories into the LLM via SFT[cite: 100].
-3.  [cite_start]**Evolution:** Activate the LLM's latent world knowledge through multi-turn RL (PPO)[cite: 100].
+1.  **Lightweight Scouts:** Use small networks (MLPs/CNNs) to rapidly master environmental dynamics via standard RL.
+2.  **Sub-Scale Collaboration:** Distill the scout's expert trajectories into the LLM via SFT.
+3.  **Evolution:** Activate the LLM's latent world knowledge through multi-turn RL (PPO).
 
-[cite_start]Empirically, SCOUT enables a **Qwen2.5-3B** model to achieve an average score of **0.86** on complex tasks (including Rubik's Cube and 2048), significantly performing proprietary models like **Gemini-2.5-Pro (0.60)**, while reducing GPU hours by **~60%**[cite: 101, 665, 669].
+Empirically, SCOUT enables a **Qwen2.5-3B** model to achieve an average score of **0.86** on complex tasks (including Rubik's Cube and 2048), significantly performing proprietary models like **Gemini-2.5-Pro (0.60)**, while reducing GPU hours by **~60%**.
 
 This repository is built upon the [RAGEN](https://github.com/RAGEN-AI/RAGEN) framework.
 
