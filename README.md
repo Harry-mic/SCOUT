@@ -77,7 +77,7 @@ Bandit: Fundamental RL benchmark.
 ### 1. Exploration Stage (Train Scouts)
 Train lightweight scouts (MLP/CNN) to collect expert trajectories.
 ```bash
-# Example: Train a DQN scout for Frozenlake
+# Example: Train a DQN scout for Frozenlake and collected the trajectories as runs_scouts
 python scout_dqn/dqn_frozenlake.py --track
 ```
 
@@ -85,30 +85,22 @@ python scout_dqn/dqn_frozenlake.py --track
 Textualizer the collected datasets.
 ```bash
 # Textualizer from one-hot vectors to language dialogues.
-python 
+python scripts/Textualizer_frozenlake.py  runs_scouts/Frozenlake_dqn_*** --step step_***
 ```
 Fine-tune the base LLM on the collected trajectories. We utilize LLaMA-Factory for this stage.
 ```bash
-# Format data and run SFT
-bash scripts/run_sft.sh --model Qwen/Qwen2.5-3B-Instruct --data_path data/trajectories
+# Run SFT on previous collected dialogues.
+llama-factory train xxx.yaml
 ```
 
 ### 3. Evolving Stage (Multi-turn RL)
 Run multi-turn PPO on the SFT model using the RAGEN infrastructure.
 
-Configure your experiment: Edit config/base.yaml or create a new config to select your environment (e.g., rubiks_cube, 2048).
-
 Start Training:
 
 ```bash
-
-# Train using the base configuration
-python train.py --config-name base
-
-# Or specifying parameters for a specific environment
-python train.py --config-name base env=rubiks_cube actor.model.path=/path/to/sft/checkpoint
+bash scripts/example_bash.sh
 ```
-
 
 ## 📊 Performance
 
