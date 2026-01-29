@@ -123,12 +123,7 @@ SCOUT/
 If you find SCOUT useful for your research, please cite our paper:
 
 ```text
-@article{scout2026,
-  title={Language-based Trial and Error Fails in the Era of Experience},
-  author={Anonymous Authors},
-  journal={Under Review at ICML},
-  year={2026}
-}
+
 ```
 ## Acknowledgements
 This codebase is built upon RAGEN. We thank the RAGEN team for their infrastructure support.
