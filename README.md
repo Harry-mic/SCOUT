@@ -7,7 +7,7 @@
 
 <p align="center">
   <a href="https://scout-cs.github.io/"><img src="https://img.shields.io/badge/🏠_HOMEPAGE-FF4500?style=for-the-badge&logoColor=white" alt="Paper"></a>
-  <a href=""><img src="https://img.shields.io/badge/📄_Paper-green?style=for-the-badge&logoColor=white" alt="Paper"></a>
+  <a href="https://arxiv.org/abs/2601.21754"><img src="https://img.shields.io/badge/📄_Paper-green?style=for-the-badge&logoColor=white" alt="Paper"></a>
   <a href="https://github.com/Harry-mic/SCOUT"><img src="https://img.shields.io/badge/💻_Code-181717?style=for-the-badge&logoColor=white" alt="Code"></a>
   <a href=""><img src="https://img.shields.io/badge/🦙_Model-yellow?style=for-the-badge&logoColor=white" alt="Code"></a>
   <a href=""><img src="https://img.shields.io/badge/📖_Dataset-purple?style=for-the-badge&logoColor=white" alt="Code"></a>
