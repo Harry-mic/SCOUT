@@ -26,6 +26,10 @@ Empirically, SCOUT enables a **Qwen2.5-3B** model to achieve an average score of
 
 This repository is built upon the [RAGEN](https://github.com/RAGEN-AI/RAGEN) framework.
 
+## 🎁 Updates
+* 2026.01.30: We release our paper: [Language-based Trial and Error Falls Behind in the Era of Experience](https://arxiv.org/pdf/2601.21754) at arxiv and code.
+* The models and datasets are coming soon...
+
 ## 🚀 The SCOUT Framework
 
 <p align="center"><img src="pipeline117.png" width="800px" alt="SCOUT Framework Overview" /></p>
