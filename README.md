@@ -6,11 +6,11 @@
 </p>
 
 <p align="center">
-  <a href="https://scout-cs.github.io/"><img src="https://img.shields.io/badge/🏠_HOMEPAGE-FF4500?style=for-the-badge&logoColor=white" alt="Paper"></a>
+  <a href="https://scout-cs.github.io/"><img src="https://img.shields.io/badge/🏠_HOMEPAGE-FF4500?style=for-the-badge&logoColor=white" alt="HOMEPAGE"></a>
   <a href="https://arxiv.org/abs/2601.21754"><img src="https://img.shields.io/badge/📄_Paper-green?style=for-the-badge&logoColor=white" alt="Paper"></a>
   <a href="https://github.com/Harry-mic/SCOUT"><img src="https://img.shields.io/badge/💻_Code-181717?style=for-the-badge&logoColor=white" alt="Code"></a>
-  <a href=""><img src="https://img.shields.io/badge/🦙_Model-yellow?style=for-the-badge&logoColor=white" alt="Code"></a>
-  <a href=""><img src="https://img.shields.io/badge/📖_Dataset-purple?style=for-the-badge&logoColor=white" alt="Code"></a>
+  <a href="https://huggingface.co/Harryis/SCOUT_multitask"><img src="https://img.shields.io/badge/🦙_Model-yellow?style=for-the-badge&logoColor=white" alt="Model"></a>
+  <a href=""><img src="https://img.shields.io/badge/📖_Dataset-purple?style=for-the-badge&logoColor=white" alt="Dataset"></a>
 </p>
 
 ## 📖 Overview
@@ -28,6 +28,7 @@ This repository is built upon the [RAGEN](https://github.com/RAGEN-AI/RAGEN) fra
 
 ## 🎁 Updates
 * 2026.01.30: We release our paper: [Language-based Trial and Error Falls Behind in the Era of Experience](https://arxiv.org/pdf/2601.21754) at arxiv and code.
+* 2026.01.31: We release the multi-task models at [huggingface](https://huggingface.co/Harryis/SCOUT_multitask).
 
 ## 🚀 The SCOUT Framework
 
