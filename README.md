@@ -127,7 +127,12 @@ SCOUT/
 If you find SCOUT useful for your research, please cite our paper:
 
 ```text
-
+@article{wang2026language,
+  title={Language-based Trial and Error Falls Behind in the Era of Experience},
+  author={Wang, Haoyu and Ma, Guozheng and Cui, Shugang and Kong, Yilun and Luo, Haotian and Shen, Li and Gao, Mengya and Wu, Yichao and Wang, Xiaogang and Tao, Dacheng},
+  journal={arXiv preprint arXiv:2601.21754},
+  year={2026}
+}
 ```
 ## Acknowledgements
 This codebase is built upon RAGEN. We thank the RAGEN team for their infrastructure support.
